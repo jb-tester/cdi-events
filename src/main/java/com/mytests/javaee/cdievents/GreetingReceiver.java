@@ -24,15 +24,11 @@ public class GreetingReceiver implements EventReceiver, Serializable {
      * @param greet 
      */
     void receiveSync(@Observes String greet) {
-        System.out.println("==================receivesync=====================");
+        System.out.println("==================receive sync=====================");
         this.greet = greet + " received";
     }
 
-    /**
-     * Asynchronous observer
-     * 
-     * @param greet 
-     */
+
     void receiveAsync(@ObservesAsync String greet) {
         // Signal that we've started
         synchronizer.receiverStarted();

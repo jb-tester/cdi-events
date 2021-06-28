@@ -18,12 +18,14 @@
     </properties>
 
     <dependencies>
-        <!--<dependency>
+        <!--
+        <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-web-api</artifactId>
             <version>9.0.0-RC1</version>
             <scope>provided</scope>
-        </dependency>-->
+        </dependency>
+        -->
         <dependency>
             <groupId>javax.faces</groupId>
             <artifactId>javax.faces-api</artifactId>
