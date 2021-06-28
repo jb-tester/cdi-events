@@ -4,15 +4,16 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.event.ObservesAsync;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
 
-@ApplicationScoped
+@ApplicationScoped @Named
 public class GreetingReceiver implements EventReceiver, Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    private String greet = "Willkommen";
+    private String greet = "nothing here";
     
     @Inject
     private Synchronizer synchronizer;
@@ -23,8 +24,8 @@ public class GreetingReceiver implements EventReceiver, Serializable {
      * @param greet 
      */
     void receiveSync(@Observes String greet) {
-        System.out.println("receivesync");
-        this.greet = greet + "-sync";
+        System.out.println("==================receivesync=====================");
+        this.greet = greet + " received";
     }
 
     /**
@@ -46,7 +47,7 @@ public class GreetingReceiver implements EventReceiver, Serializable {
             e.printStackTrace();
         }
         
-        this.greet += greet + "-async";
+        this.greet += greet + " async received";
     }
 
     @Override
