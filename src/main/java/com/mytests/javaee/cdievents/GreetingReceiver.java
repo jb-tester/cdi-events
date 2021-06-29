@@ -3,13 +3,16 @@ package com.mytests.javaee.cdievents;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.event.ObservesAsync;
+import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
 
-@ApplicationScoped @Named @FacesConfig(version = FacesConfig.Version.JSF_2_3)
+//@ApplicationScoped @Named
+@FacesConfig(version = FacesConfig.Version.JSF_2_3)
+@Model
 public class GreetingReceiver implements EventReceiver, Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,11 +22,7 @@ public class GreetingReceiver implements EventReceiver, Serializable {
     @Inject
     private Synchronizer synchronizer;
     
-    /**
-     * Synchronous observer
-     * 
-     * @param greet 
-     */
+
     void receiveSync(@Observes String greet) {
         System.out.println("==================receive sync=====================");
         this.greet = greet + " received";
